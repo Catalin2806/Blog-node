@@ -1,0 +1,22 @@
+<%- include ("partials/header") -%>
+
+<h1>Home</h1>
+
+<!-- form ca sa poti folosi body-parser si asa scriem ca sa luam din js -->
+<form class="" action="/" method="post">
+  <p><%= startingContent %></p>
+
+<!-- ca sa putem lua cate una din variabila , nu mereu pe toate. -->
+<!-- asa si adaugam inca un titlu si un paragraf -->
+<!-- cum sa reducem din carectere la un post-->
+<% posts.forEach(function(post){ %>
+<h1> <%= post.title %> </h1>
+<p> <%= post.content.substring(0,100)+ " ..." %>
+<a href="/posts/<%=post._id %>">Read More</a>
+</p>
+
+  <% });  %>
+
+  </form>
+
+<%- include("partials/footer") -%>
